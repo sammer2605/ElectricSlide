@@ -14,13 +14,14 @@ running = True
 while running:
     # time.sleep(1)
     response = ser.readline().decode().strip()
-    print("Arduino:", response)
-    if response == "Hello, RPi!":
-        ser.write("Hello, Arduino!".encode())
-        print("RPi: Hello, Arduino!")
+    print(response)
+    if int(input("Enter 1 to send: ")) == 1:
         # time.sleep(1)
-        response = ser.readline().decode().strip()
-        print("Arduino:", response)
-        running = False
-    # time.sleep(1)
+        ser.write("1".encode())
+        # print("RPi: A")
+        # time.sleep(1)
+        # response = ser.readline().decode().strip()
+        # print("Arduino:", response)
+        # running = False
+    time.sleep(0.5)
 ser.close()
